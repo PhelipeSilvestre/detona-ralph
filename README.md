@@ -1,5 +1,7 @@
 # Detona Ralph Game 🎮
 
+![ralph](https://github.com/user-attachments/assets/6fa64164-1508-43f9-8751-71a4d7eaac28)
+
 ### Descrição
 
 Este projeto foi desenvolvido como parte de uma certificação no curso de Desenvolvimento Web da Digital Innovation One (DIO) em parceria com a HI-Happy. O objetivo do jogo é acertar o personagem Ralph clicando nele. A cada acerto, o jogador ganha 1 ponto, e o jogo termina quando o cronômetro chega a zero ou o jogador perde todas as vidas.
