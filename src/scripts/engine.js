@@ -4,6 +4,7 @@ const state = {
     enemy: document.querySelector(".enemy"),
     timeLeft: document.querySelector("#time-left"),
     score: document.querySelector("#score"),
+    lives: document.querySelector("#lives"),
   },
   values: {
     gameVelocity: 1000,
@@ -29,10 +30,10 @@ function countDown() {
 }
 
 function playSound() {
-  let audio = new Audio("./src/audios/hit.m4a");
+  let audio = new Audio("src/audios/hit.m4a");
   audio.volume = 0.2;
   audio.play();
-}
+} // resolver bug audio
 
 function randomSquare() {
   state.view.squares.forEach((square) => {
@@ -58,14 +59,35 @@ function addListenerHitBox() {
         state.view.score.textContent =
           parseInt(state.view.score.textContent) + 1;
         clearInterval(state.values.timerId);
-        moveEnemy();
+        moveEnemy();        
+      }else {
+        state.view.lives.textContent = parseInt(state.view.lives.textContent) - 1;
+      
+        if(state.view.lives.textContent < 0){          
+          alert("Game Over! Your final score is " + state.values.result);
+         
+          restartGame() ;
+
+        }
       }
     });
   });
 }
 
+function restartGame() {
+  state.values.result = 0;
+  state.view.score.textContent = state.values.result;
+  state.values.currentTime = 60;
+  state.view.timeLeft.textContent = state.values.currentTime;
+  state.view.lives.textContent = 3;
+  state.actions.countDownTimerId = setInterval(countDown, 1000);
+  state.actions.timerId = setInterval(randomSquare, 1000);
+  }
+
 function main() {
   addListenerHitBox();
+ 
 }
 
 main();
+
