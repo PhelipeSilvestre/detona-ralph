@@ -43,3 +43,11 @@ Abra o arquivo index.html no navegador.
 - Implementar um sistema de ranking.
 - Melhorar os efeitos sonoros e visuais.
 
+## Previa
+
+![detona-ralph](https://github.com/user-attachments/assets/994352f3-58c8-4c2e-8669-8db4bafbbbb6)
+
+### Jogue aqui
+
+https://phelipesilvestre.github.io/detona-ralph/
+
