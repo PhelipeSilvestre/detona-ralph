@@ -30,7 +30,7 @@ function countDown() {
 }
 
 function playSound() {
-  let audio = new Audio("src/audios/hit.m4a");
+  let audio = new Audio("./src/audios/hit.m4a");
   audio.volume = 0.2;
   audio.play();
 } // resolver bug audio
