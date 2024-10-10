@@ -1,36 +1,23 @@
+/* Estilos gerais */
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("../images/wall.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 .menu {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center; /* Centraliza os itens do menu */
   align-items: center;
-
-  height: 90px;
-  width: 100%;
-  background-color: #000000;
-  color: #ffffff;
-
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
   border-bottom: 5px solid #ffd700;
-}
-.panel {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.square {
-  height: 150px;
-  width: 150px;
-  border: 1px solid #000000;
-  background-color: #7fffd4;
-}
-.enemy {
-  background-image: url("../images/ralph.png");
-  background-size: cover;
+  gap: 2rem; /* Define o espaço entre os itens do menu */
 }
 .menu-lives {
   display: flex;
@@ -44,4 +31,79 @@
 .menu-time h2,
 .menu-score h2 {
   margin-top: 10px;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center; /* Centraliza os itens na coluna */
+  }
+
+  .menu h2 {
+    font-size: 1.2rem; /* Reduz o tamanho da fonte em telas menores */
+  }
+}
+
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 480px) {
+  .menu h2 {
+    font-size: 1rem; /* Tamanho ainda menor para dispositivos pequenos */
+  }
+}
+
+/* Ajustes do painel para a grade 3x3 */
+.panel-container {
+  display: flex;
+  flex-direction: column; /* Permite que o painel cresça verticalmente */
+  justify-content: center; /* Centraliza a grade em relação ao menu */
+  flex-grow: 1; /* Faz o contêiner crescer para ocupar o espaço restante */
+  align-items: center; /* Centraliza a grade horizontalmente */
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Fixa a grade em 3 colunas */
+  gap: 0; /* Remove o espaçamento entre os quadrados */
+  max-width: 600px; /* Define uma largura máxima para o painel */
+  width: 100%; /* Permite que o painel ocupe todo o espaço disponível */
+  aspect-ratio: 1; /* Mantém a proporção de aspecto do painel como quadrado */
+}
+
+/* Cada quadrado */
+.square {
+  position: relative;
+  width: 100%; /* Largura total do quadrado */
+  height: 0; /* Inicia com altura 0 para manter proporção */
+  padding-bottom: 100%; /* Mantém a proporção 1:1 (quadrado) */
+  border: 1px solid #000;
+  background-color: #7fffd4;
+}
+
+.square.enemy {
+  background-image: url("../images/ralph.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Ajustando o conteúdo dentro dos quadrados */
+.square > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Ajuste para manter o layout responsivo sem quebrar a grade */
+@media (max-width: 768px) {
+  .panel {
+    padding: 1rem; /* Pode ajustar o padding conforme necessário */
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+    padding: 0.5rem; /* Reduz o padding para telas pequenas */
+  }
 }
